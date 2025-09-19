@@ -73,7 +73,7 @@ class Module:
             The name and `Parameter` of each ancestor parameter.
         """
         result = []
-        add_child_parameters(self)
+        add_child_parameters(self, result)
         return result
 
     def parameters(self) -> Sequence[Parameter]:
