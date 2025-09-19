@@ -3,17 +3,17 @@ from __future__ import annotations
 from typing import Any, Dict, Optional, Sequence, Tuple
 
 
-def add_child_parameters(module: Module, param_list: list) -> None:
+def add_child_parameters(module: Module, param_list: list, prefix: str) -> None:
     """
     Appends the parameters of module in param_list
 
     Returns:
         None
     """
-    for param_tuple in module._parameters.items():
-        param_list.append(param_tuple)
+    for name, param in module._parameters.items():
+        param_list.append((prefix + name, param))
     for name, module in module._modules.items():
-        add_child_parameters(module, param_list)
+        add_child_parameters(module, param_list, prefix + f'{module}.')
     return
 
 
@@ -73,7 +73,7 @@ class Module:
             The name and `Parameter` of each ancestor parameter.
         """
         result = []
-        add_child_parameters(self, result)
+        add_child_parameters(self, result, "")
         return result
 
     def parameters(self) -> Sequence[Parameter]:
