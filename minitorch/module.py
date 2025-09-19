@@ -13,7 +13,7 @@ def add_child_parameters(module: Module, param_list: list, prefix: str) -> None:
     for name, param in module._parameters.items():
         param_list.append((prefix + name, param))
     for name, module in module._modules.items():
-        add_child_parameters(module, param_list, prefix + f'{module}.')
+        add_child_parameters(module, param_list, prefix + f'{name}.')
     return
 
 
