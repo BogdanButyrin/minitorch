@@ -81,6 +81,7 @@ class Module:
         index = 0
         result = []
         add_child_parameters_enumerate(self, result, index)
+        return result
 
     def add_parameter(self, k: str, v: Any) -> Parameter:
         """
