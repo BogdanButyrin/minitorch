@@ -159,7 +159,7 @@ def zipWith(
 
 def addLists(ls1: Iterable[float], ls2: Iterable[float]) -> Iterable[float]:
     "Add the elements of `ls1` and `ls2` using `zipWith` and `add`"
-    add_f = zip(add)
+    add_f = zipWith(add)
     return add_f(ls1, ls2)
 
 
