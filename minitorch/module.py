@@ -2,18 +2,20 @@ from __future__ import annotations
 
 from typing import Any, Dict, Optional, Sequence, Tuple
 
+
 def add_child_parameters(module: Module, param_list: list) -> None:
     """
     Appends the parameters of module in param_list
 
     Returns:
-        None 
-    """    
+        None
+    """
     for param_tuple in module._parameters.items():
         param_list.append(param_tuple)
     for name, module in module._modules.items():
         add_child_parameters(module, param_list)
     return
+
 
 def add_child_parameters_enumerate(module: Module, param_list: list, cur_index: int) -> None:
     for name, param in module._parameters.items():
@@ -22,6 +24,7 @@ def add_child_parameters_enumerate(module: Module, param_list: list, cur_index: 
     for name, module in module._modules.items():
         add_child_parameters(module, param_list, cur_index)
     return
+
 
 class Module:
     """

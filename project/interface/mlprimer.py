@@ -12,7 +12,7 @@ from chalk import (
     unit_y,
 )
 from colour import Color
-from drawing import aqua, black, lightblue, lightred
+from drawing import aqua, white, blue, black, lightblue, lightred
 
 import minitorch
 
