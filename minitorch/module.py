@@ -22,7 +22,7 @@ def add_child_parameters_enumerate(module: Module, param_list: list, cur_index: 
         param_list.append((cur_index, param))
         cur_index += 1
     for name, module in module._modules.items():
-        add_child_parameters(module, param_list, cur_index)
+        add_child_parameters_enumerate(module, param_list, cur_index)
     return
 
 
