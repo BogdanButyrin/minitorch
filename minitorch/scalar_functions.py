@@ -131,7 +131,7 @@ class Neg(ScalarFunction):
 
     @staticmethod
     def forward(ctx: Context, a: float) -> float:
-        return -a
+        return operators.neg(a)
 
     @staticmethod
     def backward(ctx: Context, d_output: float) -> float:
@@ -190,7 +190,7 @@ class LT(ScalarFunction):
 
     @staticmethod
     def backward(ctx: Context, d_output: float) -> Tuple[float, float]:
-        return 0, 0
+        return 0.0, 0.0
 
 
 class EQ(ScalarFunction):
@@ -202,5 +202,4 @@ class EQ(ScalarFunction):
 
     @staticmethod
     def backward(ctx: Context, d_output: float) -> Tuple[float, float]:
-        return 0, 0
-  
+        return 0.0, 0.0
