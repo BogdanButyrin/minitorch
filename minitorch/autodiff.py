@@ -102,7 +102,7 @@ def backpropagate(variable: Variable, deriv: Any) -> None:
             continue
         for prev, d_prev in v.chain_rule(derivatives[v.unique_id]):
             if not prev.is_constant():
-                derivatives[prev.unique_id] += d_prev
+                derivatives[v.unique_id] += d_prev
 
 
 @dataclass
