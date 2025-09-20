@@ -76,7 +76,7 @@ def topological_sort(variable: Variable) -> Iterable[Variable]:
         used.add(v.unique_id)
         topsort.append(v)
         return
- 
+
     dfs(variable)
 
     return reversed(topsort)
