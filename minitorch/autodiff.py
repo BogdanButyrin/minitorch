@@ -67,7 +67,7 @@ def topological_sort(variable: Variable) -> Iterable[Variable]:
     used = set()
 
     def dfs(v: Variable) -> None:
-        if v in used or v.is_constant:
+        if v.unique_id in used or v.is_constant:
             return
         if not v.is_leaf():
             for parent in v.parents:
