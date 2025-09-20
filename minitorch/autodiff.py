@@ -1,6 +1,5 @@
 from dataclasses import dataclass
 from typing import Any, Iterable, List, Tuple
-from copy import deepcopy
 from typing_extensions import Protocol
 
 # ## Task 1.1
@@ -22,11 +21,11 @@ def central_difference(f: Any, *vals: Any, arg: int = 0, epsilon: float = 1e-6) 
     Returns:
         An approximation of $f'_i(x_0, \ldots, x_{n-1})$
     """
-    right = deepcopy(vals)
-    left = deepcopy(vals)
+    right = list(vals)
+    left = list(vals)
     right[arg] += epsilon / 2
     left[arg] -= epsilon / 2
-    return (f(right) - f(left)) / epsilon
+    return (f(*right) - f(*left)) / epsilon
 
 
 variable_count = 1
